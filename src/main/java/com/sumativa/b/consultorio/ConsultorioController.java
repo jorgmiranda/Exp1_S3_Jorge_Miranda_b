@@ -4,10 +4,13 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -85,6 +88,13 @@ public class ConsultorioController {
     }
     
 
+    @GetMapping("/pacientes/contar")
+    public HashMap<String, Integer> getCantidadPacientes() {
+        HashMap<String, Integer> cantidad = new HashMap<String, Integer>();
+        cantidad.put("Cantidad Pacientes", pacientes.size());
+        return cantidad;
+    }
+    
 
 
 
